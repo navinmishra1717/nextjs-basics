@@ -16,7 +16,7 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@app/*": ["pages/*"],
+      "@pages/*": ["pages/*"],
       "@test/*": ["__tests__/*"]
     },
     "rootDirs": ["."],
