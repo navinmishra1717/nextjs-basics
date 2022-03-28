@@ -25,6 +25,16 @@ export default function Header() {
             </Link>
           </li>
           <li>
+            <Link href="/posts">
+              <a>Posts</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/users">
+              <a>Users</a>
+            </Link>
+          </li>
+          <li>
             <Link href="/aboutUs">
               <a>About Us</a>
             </Link>

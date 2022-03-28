@@ -17,6 +17,7 @@
     "baseUrl": ".",
     "paths": {
       "@pages/*": ["pages/*"],
+      "@lib/*": ["lib/*"],
       "@test/*": ["__tests__/*"]
     },
     "rootDirs": ["."],

@@ -1,11 +1,13 @@
-import type { GetServerSideProps, InferGetServerSidePropsType } from 'next';
+import type { GetStaticProps, NextPage } from 'next';
 import Link from 'next/link';
+import { BASE_URL } from 'config';
 import { UserData } from '../../utils/types';
-import { userData } from '../../utils/data';
 
-function Users({
-  users,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+type Props = {
+  users: UserData[];
+};
+
+const Users: NextPage<Props> = ({ users }) => {
   return (
     <ul>
       {users.map((user) => {
@@ -22,13 +24,39 @@ function Users({
       })}
     </ul>
   );
-}
+};
 
-export const getServerSideProps = async () => {
-  const users: UserData[] = userData.filter((item) => item.age >= 30);
-  return {
-    props: { users },
-  };
+export const getStaticProps: GetStaticProps = async () => {
+  try {
+    // const response = await fetch(`${BASE_URL}/api/users`, {
+    //   method: 'GET',
+    //   headers: {
+    //     'User-Agent': '*',
+    //     Accept: 'application/json; charset=UTF-8',
+    //   },
+    // });
+    // const users = await response.json();
+    const users = {};
+    // const users = await res.json();
+    console.log(users, 'users');
+
+    if (!users) {
+      return {
+        notFound: true,
+      };
+    }
+    return {
+      props: { users },
+      revalidate: 10,
+    };
+  } catch (error) {
+    console.log(error, 'error');
+    return {
+      props: {
+        users: [],
+      },
+    };
+  }
 };
 
 export default Users;

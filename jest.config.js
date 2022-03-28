@@ -1,5 +1,5 @@
 // jest.config.js
-const nextJest = require('next/jest');
+import * as nextJest from 'next/jest';
 
 const createJestConfig = nextJest({
   // other options

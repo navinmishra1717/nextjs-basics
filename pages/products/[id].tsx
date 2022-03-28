@@ -35,6 +35,7 @@ export const getStaticPaths: GetStaticPaths<Params> = async () => {
 export const getStaticProps: GetStaticProps<ProductProps, Params> = async ({
   params,
 }) => {
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const { id } = params!;
   const product = productData.find((item) => item.id === id) as ProductData;
   if (!product) {

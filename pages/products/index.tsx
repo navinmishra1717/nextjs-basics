@@ -1,4 +1,4 @@
-import type { GetStaticProps, GetStaticPaths, NextPage } from 'next';
+import type { GetStaticProps, NextPage } from 'next';
 import Link from 'next/link';
 import { productData } from '../../utils/data';
 import { ProductData } from '../../utils/types';
